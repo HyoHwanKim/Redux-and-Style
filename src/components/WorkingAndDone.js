@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 const WorkingAndDoneArea = styled.div`
   max-width: 1200px;
@@ -66,7 +67,7 @@ const CompleteButton = styled.button`
 
 function WorkingAndDone() {
   const list = useSelector((state) => {
-    return state.list;
+    return state.todoList;
   });
   console.log(list);
   return (
@@ -92,6 +93,7 @@ function Working({ list }) {
                 title={item.title}
                 content={item.content}
                 isDone={item.isDone}
+                detail={item.detail}
                 list={list}
               ></TodoCard>
             );
@@ -116,6 +118,7 @@ function Done({ list }) {
                 title={item.title}
                 content={item.content}
                 isDone={item.isDone}
+                detail={item.detail}
                 list={list}
               ></TodoCard>
             );
@@ -125,7 +128,7 @@ function Done({ list }) {
   );
 }
 
-function TodoCard({ id, title, content, isDone, list }) {
+function TodoCard({ id, title, content, isDone, list, detail }) {
   const dispatch = useDispatch();
   const deleteHandler = () => {
     dispatch({ type: "DELETE", payload: id });
@@ -135,6 +138,8 @@ function TodoCard({ id, title, content, isDone, list }) {
   };
   return (
     <TodoCardWrapper>
+      {/* <Link to={detail}>상세 정보</Link> */}
+      <div>{detail}</div>
       <TodoCardTitle>{title}</TodoCardTitle>
       <TodoCardContent>{content}</TodoCardContent>
       <ButtonPair>
