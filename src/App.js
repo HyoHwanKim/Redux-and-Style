@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import AddTodo from './components/AddTodo';
-import Working from './components/Working';
+import React from "react";
+import WorkingAndDone from "./components/WorkingAndDone";
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
   return (
     <div>
       <AddTodo />
-      <Working />
+      <WorkingAndDone />
     </div>
   );
 }

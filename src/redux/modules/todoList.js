@@ -6,13 +6,16 @@ const initialState = [
         id: uuidv4(),
         title: '리덕스 배우기',
         content: '리덕스를 배워보자',
-        done: false
+        isDone: false,
+        detail : '상세페이지'
     },
     {
         id: uuidv4(),
         title: '리엑트 배우기',
         content: '리엑트를 배워보자',
-        done: false
+        isDone: false,
+        detail : '상세페이지'
+
     }
 ]
 
@@ -34,9 +37,18 @@ const todoList = (state = initialState, action) => {
                 id: uuidv4(),
                 title: action.payload.title,
                 content: action.payload.content,
-                done: false
+                isDone: false
             }
             return [...state, newTodo]
+        case "DELETE":
+            return state.filter((item) => item.id !== action.payload);
+        case "DONE_CHANGE":
+                const newList = [...state];
+                newList.find((item) => item.id === action.payload).isDone =
+                  newList.find((item) => item.id === action.payload).isDone === true
+                    ? false
+                    : true;
+                return newList;   
         default:
             return state
     }
