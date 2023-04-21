@@ -24,7 +24,8 @@ export const addTodo = (title, content) => {
         type: ADD_TODO,
         payload: {
             title,
-            content
+            content,
+            detail : '상세페이지'
         }
     }
 }
@@ -37,7 +38,8 @@ const todoList = (state = initialState, action) => {
                 id: uuidv4(),
                 title: action.payload.title,
                 content: action.payload.content,
-                isDone: false
+                isDone: false,
+                detail : '상세페이지'
             }
             return [...state, newTodo]
         case "DELETE":

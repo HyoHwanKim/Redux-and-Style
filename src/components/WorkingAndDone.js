@@ -138,8 +138,8 @@ function TodoCard({ id, title, content, isDone, list, detail }) {
   };
   return (
     <TodoCardWrapper>
-      {/* <Link to={detail}>상세 정보</Link> */}
-      <div>{detail}</div>
+      <Link to={`/detail/${id}`}>{detail}</Link>
+      {/* <div>{detail}</div> */}
       <TodoCardTitle>{title}</TodoCardTitle>
       <TodoCardContent>{content}</TodoCardContent>
       <ButtonPair>
