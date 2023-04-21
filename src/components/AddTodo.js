@@ -54,10 +54,6 @@ function AddTodo() {
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
 
-    // const todoList = useSelector((state) => state.todoList)
-    // console.log(todoList)
-
-
     const addTitle = (e) => {
         setTitle(e.target.value)
     }
